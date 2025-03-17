@@ -19,4 +19,19 @@ export class LoginComponent {
     userName: '',
     password: ''
   };
+
+  // Login
+
+  // Get username and password
+  // compare if correct password
+
+  // if wrong password
+  // show error message
+
+  //if right password 
+  //go to next page
+
+
 }
+
+  
