@@ -1,0 +1,11 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+      "outDir": "./dist/student-login/server",
+      "target": "ES2016",
+      "module": "commonjs",
+      "types": []
+    },
+    "files": ["src/main.server.ts"]
+  }
+  
