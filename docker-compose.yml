@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:latest
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: student_login_info
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3307:3306" # Maps MySQL's internal 3306 to host's 3307
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - backend
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    networks:
+      - backend
+
+  app:
+    build:
+      context: . # Path to your Node.js app Dockerfile
+    depends_on:
+      - db
+    networks:
+      - backend
+
+volumes:
+  db_data:
+
+networks:
+  backend:

@@ -12,4 +12,3 @@ COPY --from=builder /app/dist ./dist
 COPY --from=builder /app/server ./server
 RUN npm install
 CMD ["node", "dist/server/main.js"]
-

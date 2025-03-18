@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:student-login": "node dist/student-login/server/server.mjs"
+    "build:ssr": "ng build --configuration production && ng run student-login:server:production",
+    "serve:ssr": "node dist/student-login/server/main.js"
   },
   "private": true,
   "dependencies": {
@@ -20,7 +21,11 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.3",
-    "express": "^4.18.2",
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql": "^2.18.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
@@ -39,5 +44,18 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "typescript": "~5.7.2"
-  }
+  },
+  "description": "This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christian-keitri/Angular-login-student-registration.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christian-keitri/Angular-login-student-registration/issues"
+  },
+  "homepage": "https://github.com/christian-keitri/Angular-login-student-registration#readme"
 }
