@@ -1,37 +1,20 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';  // Import FormsModule to use ngModel
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  standalone: true,
-  imports: [FormsModule]
+  standalone: true,  // Marking LoginComponent as a standalone component
+  imports: [FormsModule]  // Import FormsModule for ngModel
 })
 export class LoginComponent {
-  signupObj: any = {
-    userName: '',
-    email: '',
-    password: ''
-  };
-
-  loginObj: any = {
+  loginObj = {
     userName: '',
     password: ''
   };
 
-  // Login
-
-  // Get username and password
-  // compare if correct password
-
-  // if wrong password
-  // show error message
-
-  //if right password 
-  //go to next page
-
-
+  onLogin() {
+    console.log(this.loginObj);  // Log the login object for now
+  }
 }
-
-  
