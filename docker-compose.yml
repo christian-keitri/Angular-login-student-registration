@@ -10,16 +10,28 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "--host=localhost", "--user=root", "--password=rootpassword"]
+      interval: 10s
+      retries: 5
+      start_period: 10s
+      timeout: 5s
 
   php_backend:
-    image: php:apache
+    image: student-login-php_backend  # Custom PHP image if needed
     volumes:
-      - ./php-app:/var/www/html  # Make sure this points to your PHP app directory
+      - ./php-app:/var/www/html  # Ensure this points to your PHP app directory
     ports:
       - "80:80"
     depends_on:
       - mysql
-
+    environment:
+      MYSQL_HOST: mysql  # Ensure your PHP backend knows to look for the 'mysql' service
+      MYSQL_USER: root
+      MYSQL_PASSWORD: rootpassword
+      MYSQL_DB: students_db
+    restart: on-failure  # Ensure restart policy in case of failure
+  
   phpmyadmin:
     image: phpmyadmin:latest
     environment:

@@ -3,25 +3,29 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Process form submission
     $name = $_POST['name'];
 
-    // Insert into database
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "student_db"; // Replace with your actual DB name
+    // Fetch MySQL credentials from environment variables
+    $servername = getenv('MYSQL_HOST');  // 'mysql' as per your docker-compose
+    $username = getenv('MYSQL_USER');    // 'root' as per your docker-compose
+    $password = getenv('MYSQL_PASSWORD'); // 'rootpassword' as per your docker-compose
+    $dbname = getenv('MYSQL_DB');         // 'students_db' as per your docker-compose
 
+    // Establish connection to MySQL using the environment variables
     $conn = new mysqli($servername, $username, $password, $dbname);
 
+    // Check the connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "INSERT INTO students (name) VALUES ('$name')"; // Adjust table name and column names
+    // Insert data into the students table
+    $sql = "INSERT INTO students (name) VALUES ('$name')";
     if ($conn->query($sql) === TRUE) {
         echo "New student added successfully";
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
+    // Close the connection
     $conn->close();
 }
 ?>
