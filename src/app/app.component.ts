@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
-import { LoginComponent } from './login/login.component'; // Correct import for LoginComponent
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
-  template: `<app-login></app-login>`,  // Using the app-login selector here
-  standalone: true,  // Marking AppComponent as a standalone component
-  imports: [LoginComponent]  // Importing LoginComponent in AppComponent
+  template: `<app-login></app-login>`,  // This will render the LoginComponent
+  standalone: true,
+  imports: [LoginComponent]  // Import LoginComponent as a standalone component
 })
 export class AppComponent {}
