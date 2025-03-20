@@ -1,13 +1,13 @@
-import { CommonModule } from '@angular/common'; // Import CommonModule
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';  // Import FormsModule
+import { FormsModule } from '@angular/forms'; // For ngModel
+import { CommonModule } from '@angular/common'; // For CommonModule (ngIf, ngFor)
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
+  templateUrl: './login.component.html',  // Link the template
   styleUrls: ['./login.component.css'],
   standalone: true,
-  imports: [FormsModule, CommonModule]  // Add both FormsModule and CommonModule to imports
+  imports: [FormsModule, CommonModule]  // Add CommonModule and FormsModule here
 })
 export class LoginComponent {
   loginObj: any = {
@@ -28,3 +28,4 @@ export class LoginComponent {
     }
   }
 }
+

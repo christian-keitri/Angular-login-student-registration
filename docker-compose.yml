@@ -17,21 +17,6 @@ services:
       start_period: 10s
       timeout: 5s
 
-  php_backend:
-    image: student-login-php_backend  # Custom PHP image if needed
-    volumes:
-      - ./php-app:/var/www/html  # Ensure this points to your PHP app directory
-    ports:
-      - "80:80"
-    depends_on:
-      - mysql
-    environment:
-      MYSQL_HOST: mysql  # Ensure your PHP backend knows to look for the 'mysql' service
-      MYSQL_USER: root
-      MYSQL_PASSWORD: rootpassword
-      MYSQL_DB: students_db
-    restart: on-failure  # Ensure restart policy in case of failure
-  
   phpmyadmin:
     image: phpmyadmin:latest
     environment:
