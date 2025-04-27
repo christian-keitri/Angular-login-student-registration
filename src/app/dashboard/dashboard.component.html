@@ -1,0 +1,24 @@
+<div class="container">
+    <h2>Student Dashboard</h2>
+    
+    <!-- Error message if any -->
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+  
+    <!-- Form to add a new student -->
+    <div>
+      <input [(ngModel)]="studentName" placeholder="Name" />
+      <input [(ngModel)]="studentEmail" placeholder="Email" />
+      <select [(ngModel)]="selectedClassId">
+        <option *ngFor="let class of classes" [value]="class.id">{{ class.name }}</option>
+      </select>
+      <button (click)="addStudent()">Add Student</button>
+    </div>
+  
+    <!-- List of students with buttons for delete and enroll -->
+    <div *ngFor="let student of students">
+      <p>{{ student.name }} ({{ student.email }})</p>
+      <button (click)="deleteStudent(student.id)">Delete</button>
+      <button (click)="enrollStudent(student.id)">Enroll in Class</button>
+    </div>
+  </div>
+  

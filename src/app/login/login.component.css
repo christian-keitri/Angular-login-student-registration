@@ -1,88 +1,90 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
 
+/* Body Styles */
+body {
+  background-color: #f4f7fc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
 
-  
-  
-  .main {
-    width: 60%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 24px;
-    align-items:flex-start;
-  }
-  
-  
-  .login {
-    padding: 10px
-  }
-  
-  .Signup {
-    padding: 10px;
-   
-  }
-  
- .login {
-    
-    padding: 10px
+/* Login Form Container */
+.login-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
 
-  }
-  .Signup{
-    padding: 10px
-  }
-  .input {
-    width: 20%;
-    padding: 10px; 
-    margin-bottom: 15px; 
-    border: 1px solid #ccc; 
-    border-radius: 5px; 
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  .signup,
-.login {
-  display: block; /* Make the button behave like a block element */
-  margin: 10px auto; /* Center horizontally with 'auto' */
-  width: 50%; /* Optional: Set the width to make the button proportional */
-  padding: 10px; /* Padding for better appearance */
+/* Title */
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Input Styles */
+input {
+  width: 50%;
+  padding: 12px 20px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   font-size: 16px;
-  font-weight: bold;
-  color: #fff;
-  background-color: #007BFF; /* Button color */
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  outline: none;
+  transition: border-color 0.3s ease-in-out;
 }
 
-.signup:hover,
-.login:hover {
-  background-color: #0056b3; /* Change color on hover */
+/* Input Focus Effect */
+input:focus {
+  border-color: #4CAF50;
 }
-/* Align input fields vertically */
-form {
-    display: flex;
-    flex-direction: column; /* Stack elements vertically */
-    align-items: center; /* Optional: center the fields horizontally */
-  }
-  
-  /* Input field styles */
-  .input {
-    width: 90%; /* Full width within form container */
-    margin: 10px 0; /* Add spacing between fields */
-    padding: 10px; /* Add padding for better usability */
-    border: 1px solid #ccc; /* Light gray border */
-    border-radius: 5px; /* Rounded corners */
-  }
-  
-  .Signup {
-    display: none;
-  }
-  
-  #chk:checked ~ .Signup {
-    display: block;
-  }
-  
-  #chk:checked ~ .Login {
-    display: none;
-  }
-  
+
+/* Submit Button Styles */
+button {
+  background-color: #4CAF50;
+  color: white;
+  font-size: 16px;
+  padding: 12px 20px;
+  width: 58%;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+/* Button Hover Effect */
+button:hover {
+  background-color: #45a049;
+}
+
+/* Error Message Styling */
+.error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Link Styling for 'Forgot Password?' */
+a {
+  color: #4CAF50;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
